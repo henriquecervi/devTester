@@ -8,7 +8,7 @@ name: Cypress Tests
 jobs:
   deploy:
     name: Cypress Run
-    runs-on: self-hosted
+    runs-on: ubuntu-18.04
     container: cypress/browsers:node12.18.3-chrome87-ff82
     
     steps:
