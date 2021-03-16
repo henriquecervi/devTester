@@ -2,6 +2,20 @@
 
 const Hapi = require('@hapi/hapi');
 
+const mongoose = require('mongoose')
+
+const mongoURL = 'mongodb+srv://devtester:devtester@devtester.5j2jk.mongodb.net/zaplink?retryWrites=true&w=majority'
+
+mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true})
+
+mongoose.connection.on('connected',  () => {
+    console.log('MongoDB Conectado')
+})
+
+mongoose.connection.on('error',  (error) => {
+    console.log('MongoDB Com Falha ', + error)
+})
+
 const contactRoutes = require('./routes/contact.routes')
 
 const init = async () => {
